@@ -1,0 +1,9 @@
++--+----------------------+
+|id|full_order_status     |
++--+----------------------+
+|1 |Order is in open state|
+|2 |Order is in open state|
+|3 |Order is closed       |
+|4 |Order is in open state|
+|5 |Order is cancelled    |
++--+----------------------+
