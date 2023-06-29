@@ -1,3 +1,4 @@
+USE vk_db;
 # Создайте функцию, которая принимает кол-во сек и формат их в кол-во дней,
 # часов, минут и секунд.
 DROP FUNCTION IF EXISTS get_times;
@@ -26,7 +27,7 @@ BEGIN
 END $$
 DELIMITER ;
 
-SELECT get_times(123550);
+SELECT get_times(55);
 
 # Выведите только четные числа от 1 до 10 (Через цикл)
 DROP PROCEDURE IF EXISTS get_even;
