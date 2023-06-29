@@ -3,7 +3,8 @@ USE vk_db;
 # - Получите друзей пользователя с id=1
 # - (решение задачи с помощью представления “друзья”)
 CREATE OR REPLACE VIEW friends AS
-    SELECT CONCAT(firstname, ' ', lastname) AS friend
+    SELECT CONCAT(firstname, ' ', lastname) AS friend,
+           id
     FROM users
     JOIN (SELECT target_user_id AS user_id
           FROM friend_requests
