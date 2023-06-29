@@ -5,8 +5,14 @@ USE vk_db;
 CREATE OR REPLACE VIEW friends AS
     SELECT CONCAT(firstname, ' ', lastname) AS friend
     FROM users
-    JOIN friend_requests fr ON users.id = fr.initiator_user_id
-    WHERE target_user_id = 1 AND status = 'approved';
+    JOIN (SELECT target_user_id AS user_id
+          FROM friend_requests
+          WHERE initiator_user_id = 1 AND status = 'approved'
+          UNION
+          SELECT initiator_user_id AS user_id
+          FROM friend_requests
+          WHERE target_user_id = 1 AND status = 'approved') AS approved
+        ON user_id = id;
 
 SELECT * FROM friends;
 
