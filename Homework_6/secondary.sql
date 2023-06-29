@@ -83,13 +83,3 @@ DELIMITER ;
 
 SELECT hello();
 
-# ***Создайте таблицу logs типа Archive. Пусть при каждом создании записи в
-# таблицах users, communities и messages в таблицу logs помещается время и
-# дата создания записи, название таблицы, идентификатор
-# первичного ключа. (Триггеры*)
-CREATE TABLE IF NOT EXISTS logs
-    (modified_by TIMESTAMP,
-    table_name VARCHAR(15),
-    id BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT);
-
-CREATE TRIGGER add_note AFTER INSERT ON users
